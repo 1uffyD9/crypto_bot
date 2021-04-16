@@ -1,5 +1,6 @@
 import time
 import discord
+from datetime import datetime
 from trade_api import TradeApi
 from trade_cypher import TradeCypher
 
@@ -9,12 +10,14 @@ class AlertBot:
     #  - use just to initialize a variable
     #  - using instance variable to redefine it
     discord_c = discord.Client()
+    now = datetime.now()
 
     def __init__(self, key, channel_id):
         # Instance variables
         self.channel_id = channel_id
         self.trade_api = TradeApi()
         self.cypher = TradeCypher()
+        self.current_time = self.now.strftime("%H:%M:%S")
 
         # register an event
         # discord.py is an asynchronous library
@@ -94,4 +97,6 @@ class AlertBot:
 
         if current_sell_crypto_price * recent_trade_executed > recent_trade_total:
             await channel.send("```diff\n+ [#] Comes to a profitable margin point. Keep in touch\n```\n" + f_message)
+        else:
+            print("[!] {} Bot is running".format(self.current_time))
 

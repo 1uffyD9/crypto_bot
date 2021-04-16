@@ -1,2 +1,4 @@
 cryptography
 requests
+discord
+python-decouple

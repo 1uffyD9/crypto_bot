@@ -16,8 +16,15 @@
   [*] Encrypted random string : b'gAAAAABgdajqnciy9bqXwtziiEZ45wjeo-17ZcTNkvq7r0GKpxaA=='
   [*] Encrypted key pair object :
   ```
-* Copy the **encrypted bot key** from previous output and paste it as the value of the `key` variable in **main.py** script
-* Get the channel ID from Discord which you want to send notifications to and set that value as the value of **channel_id** variable
+* Create a `.env` file in the directory and add following variables to that
+  - Copy the **encrypted bot key** from previous output and create an variable 
+  ```
+    CRYPTO_BOT_KEY=<encrypted_bot_key_goes_here>
+  ```
+  - Get the channel ID from Discord which you want to send notifications to and create another variable
+  ```
+    CHANNEL_ID=<channel_ID_goes_here>
+  ```
 
 ### Running
 

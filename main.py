@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+import os,sys
+from decouple import config
 from alert_bot import AlertBot
 
 
@@ -6,9 +10,8 @@ from alert_bot import AlertBot
 if __name__ == "__main__":
 
     try:
-        key = b'xxxxxxxxxxxxxxxxxxxxx' \
-              b'xxxxxxxxxxxxxxxxxxxxx'  # Discord bot client key goes here
-        channel_id = 00000000000000     # Discord channel ID
+        key = str.encode(config('CRYPTO_BOT_KEY'))  # Discord Bot key
+        channel_id = int(config('CHANNEL_ID'))      # Discord channel ID
         AlertBot(key, channel_id)
 
     except KeyboardInterrupt:
